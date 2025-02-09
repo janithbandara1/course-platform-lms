@@ -8,7 +8,7 @@ import {
   uuid,
 } from "drizzle-orm/pg-core";
 import { createdAt, id, updatedAt } from "../schemaHelpers";
-import { CourseProductsTable } from "./courseProduct";
+import { CourseProductTable } from "./courseProduct";
 
 export const productStatuses = ["public", "private"] as const;
 export type ProductStatus = (typeof productStatuses)[number];
@@ -26,5 +26,5 @@ export const ProductTable = pgTable("products", {
 });
 
 export const ProductRelationships = relations(ProductTable, ({ many }) => ({
-  courseProducts: many(CourseProductsTable),
+  courseProducts: many(CourseProductTable),
 }));

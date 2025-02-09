@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
         "miniature-spork-gvpwv4pv5gphpgqv-3000.app.github.dev", // Codespaces
       ],
     },
+    dynamicIO: true,
+    authInterrupts: true,
   },
 };
 
