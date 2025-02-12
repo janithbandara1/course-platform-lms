@@ -76,7 +76,7 @@ async function CourseGrid() {
       <CardHeader>
         <CardTitle>{course.name}</CardTitle>
         <CardDescription>
-          {formatPlural(course.sectionCount, {
+          {formatPlural(course.sectionsCount, {
             plural: "sections",
             singular: "section",
           })}{" "}
@@ -139,7 +139,7 @@ async function getUserCourses(userId: string) {
       id: CourseTable.id,
       name: CourseTable.name,
       description: CourseTable.description,
-      sectionCount: countDistinct(CourseSectionTable.id),
+      sectionsCount: countDistinct(CourseSectionTable.id),
       lessonsCount: countDistinct(LessonTable.id),
       lessonsComplete: countDistinct(UserLessonCompleteTable.lessonId),
     })

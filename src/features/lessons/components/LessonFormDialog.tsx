@@ -35,7 +35,7 @@ export function LessonFormDialog({
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            {lesson == null ? "New Lesson" : `Edit${lesson.name}`}
+            {lesson == null ? "New Lesson" : `Edit ${lesson.name}`}
           </DialogTitle>
         </DialogHeader>
         <div className="mt-4">

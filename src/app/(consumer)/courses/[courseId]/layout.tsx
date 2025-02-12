@@ -15,8 +15,8 @@ import { asc, eq } from "drizzle-orm";
 import { cacheTag } from "next/dist/server/use-cache/cache-tag";
 import { notFound } from "next/navigation";
 import { ReactNode, Suspense } from "react";
-import { CoursePageClient } from "./lessons/_client";
 import { getUserLessonCompleteUserTag } from "@/features/lessons/db/cache/userLessonComplete";
+import { CoursePageClient } from "./_client";
 
 export default async function CoursePageLayout({
   params,

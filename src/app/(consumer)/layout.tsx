@@ -24,7 +24,7 @@ function Navbar() {
           className="mr-auto text-lg hover:underline flex items-center"
           href="/"
         >
-          Web Dev Simplified
+          Course Platform LMS
         </Link>
         <Suspense>
           <SignedIn>

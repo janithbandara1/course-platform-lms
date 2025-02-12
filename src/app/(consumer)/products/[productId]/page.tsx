@@ -139,7 +139,7 @@ export default async function ProductPage({
                           <VideoIcon className="size-4" />
                           {lesson.status === "preview" ? (
                             <Link
-                              href={`/courses/${course.id}/lesson/${lesson.id}`}
+                              href={`/courses/${course.id}/lessons/${lesson.id}`}
                               className="underline text-accent"
                             >
                               {lesson.name}

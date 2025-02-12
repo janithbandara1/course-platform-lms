@@ -2,7 +2,7 @@ import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { PageHeader } from "@/components/PageHeader";
 import { db } from "@/drizzle/db";
 import { ProductTable } from "@/drizzle/schema";
-import { getProductGlobalTag } from "@/features/products/db/cache";
+import { getProductIdTag } from "@/features/products/db/cache";
 import { userOwnsProduct } from "@/features/products/db/products";
 import { wherePublicProducts } from "@/features/products/permissions/products";
 import { getCurrentUser } from "@/services/clerk";
@@ -44,6 +44,7 @@ async function SuspendedComponent({
     if (await userOwnsProduct({ userId: user.id, productId })) {
       redirect("/courses");
     }
+
     return (
       <div className="container my-6">
         <StripeCheckoutForm product={product} user={user} />
@@ -76,7 +77,7 @@ async function SuspendedComponent({
 
 async function getPublicProduct(id: string) {
   "use cache";
-  cacheTag(getProductGlobalTag(id));
+  cacheTag(getProductIdTag(id));
 
   return db.query.ProductTable.findFirst({
     columns: {

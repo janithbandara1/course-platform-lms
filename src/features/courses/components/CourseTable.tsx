@@ -50,7 +50,7 @@ export function CourseTable({
                     plural: "sections",
                   })}{" "}
                   •{" "}
-                  {formatPlural(course.sectionsCount, {
+                  {formatPlural(course.lessonsCount, {
                     singular: "lesson",
                     plural: "lessons",
                   })}

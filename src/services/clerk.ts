@@ -1,17 +1,17 @@
-import { db } from "@/drizzle/db";
-import { UserRole, UserTable } from "@/drizzle/schema";
-import { getUserIdTag } from "@/features/users/db/cache";
-import { auth, clerkClient } from "@clerk/nextjs/server";
-import { eq } from "drizzle-orm";
-import { cacheTag } from "next/dist/server/use-cache/cache-tag";
-import { redirect } from "next/navigation";
+import { db } from "@/drizzle/db"
+import { UserRole, UserTable } from "@/drizzle/schema"
+import { getUserIdTag } from "@/features/users/db/cache"
+import { auth, clerkClient } from "@clerk/nextjs/server"
+import { eq } from "drizzle-orm"
+import { cacheTag } from "next/dist/server/use-cache/cache-tag"
+import { redirect } from "next/navigation"
 
-const client = await clerkClient();
+const client = await clerkClient()
 
 export async function getCurrentUser({ allData = false } = {}) {
-  const { userId, sessionClaims, redirectToSignIn } = await auth();
+  const { userId, sessionClaims, redirectToSignIn } = await auth()
 
-  if (userId != null && sessionClaims.dbId == null){
+  if (userId != null && sessionClaims.dbId == null) {
     redirect("/api/clerk/syncUsers")
   }
 
@@ -24,25 +24,25 @@ export async function getCurrentUser({ allData = false } = {}) {
         ? await getUser(sessionClaims.dbId)
         : undefined,
     redirectToSignIn,
-  };
+  }
 }
 
 export function syncClerkUserMetadata(user: {
-  id: string;
-  clerkUserId: string;
-  role: UserRole;
+  id: string
+  clerkUserId: string
+  role: UserRole
 }) {
   return client.users.updateUserMetadata(user.clerkUserId, {
     publicMetadata: {
       dbId: user.id,
       role: user.role,
     },
-  });
+  })
 }
 
 async function getUser(id: string) {
-  "use cache";
-  cacheTag(getUserIdTag(id));
+  "use cache"
+  cacheTag(getUserIdTag(id))
   console.log("Called")
 
   return db.query.UserTable.findFirst({

@@ -55,7 +55,7 @@ export function CoursePageClient({
                 className={cn(
                   "justify-start",
                   lesson.id === lessonId &&
-                    "bg-accent/75 text-accentt-foreground"
+                    "bg-accent/75 text-accent-foreground"
                 )}
               >
                 <Link href={`/courses/${course.id}/lessons/${lesson.id}`}>

@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     serverActions: {
       allowedOrigins: [
         "localhost:3000", // localhost
-        "miniature-spork-gvpwv4pv5gphpgqv-3000.app.github.dev", // Codespaces
+        "fluffy-space-journey-jj7p4jj4wg7r3jr6g-3000.app.github.dev", // Codespaces
       ],
     },
     dynamicIO: true,
