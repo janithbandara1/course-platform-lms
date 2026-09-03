@@ -16,6 +16,8 @@ import { getUserCourseAccessGlobalTag } from "@/features/courses/db/cache/userCo
 import { getLessonGlobalTag } from "@/features/lessons/db/cache/lessons";
 import { getCourseSectionGlobalTag } from "@/features/courseSections/db/cache";
 
+export const dynamic = "force-dynamic";
+
 export default async function CoursesPage() {
   const courses = await getCourses();
 

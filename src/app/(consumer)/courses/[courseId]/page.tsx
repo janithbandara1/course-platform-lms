@@ -6,6 +6,8 @@ import { eq } from "drizzle-orm"
 import { cacheTag } from "next/dist/server/use-cache/cache-tag"
 import { notFound } from "next/navigation"
 
+export const dynamic = "force-dynamic"
+
 export default async function CoursePage({
     params,
 }:{params:Promise<{courseId:string}>}) {

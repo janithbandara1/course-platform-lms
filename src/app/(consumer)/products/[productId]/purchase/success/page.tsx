@@ -8,6 +8,8 @@ import { cacheTag } from "next/dist/server/use-cache/cache-tag";
 import Image from "next/image";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProductPurchaseSuccessPage({
   params,
 }: {

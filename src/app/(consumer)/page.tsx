@@ -6,6 +6,8 @@ import { wherePublicProducts } from "@/features/products/permissions/products"
 import { asc } from "drizzle-orm"
 import { cacheTag } from "next/dist/server/use-cache/cache-tag"
 
+export const dynamic = "force-dynamic"
+
 export default async function HomePage() {
   const products = await getPublicProducts()
 

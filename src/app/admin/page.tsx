@@ -24,6 +24,8 @@ import { count, countDistinct, isNotNull, sql, sum } from "drizzle-orm";
 import { cacheTag } from "next/dist/server/use-cache/cache-tag";
 import { ReactNode } from "react";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminPage() {
   const {
     averageNetPurchasesPerCustomer,
